@@ -58,6 +58,23 @@ ax_elbow.set_xlabel("Number of Clusters (K)")
 ax_elbow.set_ylabel("Elbow Method For Optimal K")
 st.pyplot(fig_elbow)
 
+#kMean model training
+st.subheader("KMeans Model Training")
+n_clusters = st.slider("Select number of clusters (k)", min_value = 2, max_value = 10, step = 1, value = 3)
+model = KMeans(n_clusters = n_clusters, random_state = 42)
+model.fit(df)
+labels = model.labels_
+df_clustered = df.copy()
+df_clustered['Cluster'] = labels
+st.success("KMeans clustering complete")
+
+st.subheader("After Training Dataset")
+st.write(df_clustered.head())
+
+st.subheader("Cluster Centers (Orginal scale)")
+st.write(pd.DataFrame(model.cluster_centers_, columns = features))
+
+
 
 
 
