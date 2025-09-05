@@ -9,4 +9,20 @@ st.title("KMeans Clustering App")
 st.subheader("Data Science")
 
 st.sidebar.header("Upload CSV file or Use Sample")
-st.sidebar.checkbox("Use Example Data")
+user_exmaple = st.sidebar.checkbox("Use Example Data")
+if user_exmaple:
+  df = sns.load_dataset("iris")
+  df = df.dropna()
+  st.success("Load sample dataset: 'IRIS'")
+else:
+  uploaded_file = st.sidebar_uploader("Upload your CVS file", type=["csv"])
+  if uploaded_file:
+    df = pd.read_csv("uploaded_file")
+  else:
+    st.warning("Please upload a CSV file or Use the example dataset.")
+    st.stop()
+
+
+
+
+
