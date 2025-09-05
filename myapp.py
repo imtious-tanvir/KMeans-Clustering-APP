@@ -49,7 +49,7 @@ st.subheader("Find Optimal Number of Clusters (Elbow Method)")
 max_k = st.slider("Maximum number of clusters to test", min_value = 2, max_value = 10, step = 1)
 wcss = []
 for k in range(1, max_k + 1):
-    kmeans = kMeans(n_clusters = k, random_state = 42)
+    kmeans = KMeans(n_clusters = k, random_state = 42)
     kmeans.fit(df)
     wcss.append(kmeans.inertia_)
     fig_elbow, ax_elbow = plt.subplots()
