@@ -83,7 +83,7 @@ if len(features) >= 2:
     plt.ylabel(features[1])
     elements = scatter.legend_elements()
     handles = elements[0]
-    labels_list = element[1]
+    labels_list = elements[1]
     plt.legend(handles, labels_list, title = 'Clusters')
     st.pyplot(plt)
 else:
