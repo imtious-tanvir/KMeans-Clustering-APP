@@ -78,7 +78,7 @@ st.write(pd.DataFrame(model.cluster_centers_, columns = features))
 if len(features) >= 2:
     st.subheader("Cluster Visualisation")
     plt.figure()
-    scatter = plt.scatter(df.iloc[:, 0], df.iloc[:, 1], c=labels, cmap='virdis')
+    scatter = plt.scatter(df.iloc[:, 0], df.iloc[:, 1], c=labels, cmap='viridis')
     plt.xlabel(features[0])
     plt.ylabel(features[1])
     elements = scatter.legend_elements()
