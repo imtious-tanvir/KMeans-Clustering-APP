@@ -74,7 +74,20 @@ st.write(df_clustered.head())
 st.subheader("Cluster Centers (Orginal scale)")
 st.write(pd.DataFrame(model.cluster_centers_, columns = features))
 
-
+#ploting
+if len(features) >= 2:
+    st.subheader("Cluster Visualisation")
+    plt.figure()
+    scatter = plt.scatter(df.iloc[:, 0], df.iloc[:, 1], c=labels, cmap='virdis')
+    plt.xlabel(features[0])
+    plt.ylabel(features[1])
+    elements = scatter.legend_elements()
+    handles = elements[0]
+    labels_list = element[1]
+    plt.legend(handles, labels_list, title = 'Clusters')
+    st.pyplot(plt)
+else:
+    st.info("Select at least two features to view scatter plot.")
 
 
 
