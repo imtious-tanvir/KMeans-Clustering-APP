@@ -37,6 +37,9 @@ if len(numeric_col) < 2:
     st.stop()
 
 features = st.multiselect("Select feature columns for clustering", numeric_col, default = numeric_col)
+if len(features) == 0:
+    st.write("Please select at least one feature.")
+    st.stop()
 
 
 
