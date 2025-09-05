@@ -15,7 +15,7 @@ if user_exmaple:
   df = df.dropna()
   st.success("Load sample dataset: 'IRIS'")
 else:
-  uploaded_file = st.sidebar_uploader("Upload your CVS file", type=["csv"])
+  uploaded_file = st.sidebar.file_uploader("Upload your CVS file", type=["csv"])
   if uploaded_file:
     df = pd.read_csv("uploaded_file")
   else:
