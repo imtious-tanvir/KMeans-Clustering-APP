@@ -90,7 +90,7 @@ else:
     st.info("Select at least two features to view scatter plot.")
 
 #predict
-st.subtitle("Predict Cluster Nor New Input")
+st.subheader("Predict Cluster Nor New Input")
 input_data = {}
 valid_input = True
 for feature in features:
