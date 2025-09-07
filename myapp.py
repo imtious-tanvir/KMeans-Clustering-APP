@@ -89,9 +89,28 @@ if len(features) >= 2:
 else:
     st.info("Select at least two features to view scatter plot.")
 
+#predict
+st.subtitle("Predict Cluster Nor New Input")
+input_data = {}
+valid_input = True
+for feature in features:
+    user_input = st.text_input(f"Enter {feature} (numeric value)")
+    try:
+        if user_input.strip() == "":
+            valid_input = False
+        else:
+            input_data[feature] = float(user_input)
+    except ValueError:
+        valid_input = False
 
-
-
+#button
+if.button("Predict Cluster"):
+    if valid_input:
+        input_df = pd.DataFrame([input_data])[features]
+        cluster_pred = model.predict(input_df)
+        st.success(f"The new input belongs to Cluster: {cluster_pred}")
+    else:
+        st.error("Please enter valid numeric values for all features before predicting.")
 
 
 
